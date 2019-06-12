@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "图书详情",
+  "usingComponents": {
+    "van-checkbox": "/static/vant/checkbox/index",
+    "van-checkbox-group": "/static/vant/checkbox-group/index",
+    "van-row": "/static/vant/row/index",
+    "van-col": "/static/vant/col/index"
+  }
+}

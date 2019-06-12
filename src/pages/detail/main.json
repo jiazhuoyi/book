@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "图书详情",
+  "usingComponents": {
+    "van-rate": "/static/vant/rate/index",
+    "van-row": "/static/vant/row/index",
+    "van-col": "/static/vant/col/index"
+  }
+}
