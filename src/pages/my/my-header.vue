@@ -3,7 +3,7 @@
     <div class="my-header-box">
       <div class="header-container" @click="useScan">
         <div class="header-photo">
-           <img class="photo-img" src="/static/images/new-rank.png">
+           <img class="photo-img" src="/static/images/avatar.jpg">
         </div>
         <div class="header-info">
           <div class="center">
@@ -64,6 +64,7 @@ export default {
 .photo-img {
   width: 80%;
   height: 100%;
+  border-radius: 50%;
 }
 .header-info {
   flex: 1;

@@ -1,14 +1,14 @@
 <template>
   <div class="my-order">
-    <a class="new-rank my-order-item">
+    <a class="new-rank my-order-item" hover-class="none" href="/pages/order/bookshelf/main">
       <img class="my-order-icon" src="/static/images/bookshelf.png">
       <span class="my-order-title">书架</span>
     </a>
-    <a class="borrow-rank my-order-item">
+    <a class="borrow-rank my-order-item" hover-class="none" href="/pages/order/borrow/main">
       <img class="my-order-icon" src="/static/images/borrow-order.png">
       <span class="my-order-title">借书记录</span>
     </a>
-    <a class="all my-order-item">
+    <a class="all my-order-item" hover-class="none" href="/pages/order/return/main">
       <img class="my-order-icon" src="/static/images/return-order.png">
       <span class="my-order-title">还书记录</span>
     </a>

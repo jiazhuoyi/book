@@ -5,8 +5,18 @@
     "pages/my/main",
     "pages/counter/main",
     "pages/detail/main",
-    "pages/cart/main"
+    "pages/cart/main",
+    "pages/new-books/main",
+    "pages/hot-books/main",
+    "pages/order/bookshelf/main",
+    "pages/order/borrow/main",
+    "pages/order/return/main"
   ],
+  "usingComponents": {
+    "van-rate": "/static/vant/rate/index",
+    "van-tag": "/static/vant/tag/index",
+    "van-button": "/static/vant/button/index"
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

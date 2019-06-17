@@ -1,11 +1,10 @@
 {
-  "navigationBarTitleText": "购物车",
+  "navigationBarTitleText": "借阅榜",
   "usingComponents": {
     "van-checkbox": "/static/vant/checkbox/index",
     "van-checkbox-group": "/static/vant/checkbox-group/index",
     "van-row": "/static/vant/row/index",
     "van-col": "/static/vant/col/index",
-    "van-tag": "/static/vant/tag/index",
-    "van-swipe-cell": "/static/vant/swipe-cell/index"
+    "van-tag": "/static/vant/tag/index"
   }
 }

@@ -1,19 +1,32 @@
 <template>
   <div class="category">
-    <a class="new-rank category-item">
+    <van-toast id="van-toast" />
+    <a class="new-rank category-item" hover-class="none" href="/pages/new-books/main">
       <img class="category-icon" src="/static/images/new-rank.png">
       <span class="category-title">新书榜</span>
     </a>
-    <a class="borrow-rank category-item">
+    <a class="borrow-rank category-item" hover-class="none" href="/pages/hot-books/main">
       <img class="category-icon" src="/static/images/borrow-rank.png">
       <span class="category-title">借阅榜</span>
     </a>
-    <a class="all category-item">
+    <a class="all category-item" hover-class="none" @click="onerror()">
       <img class="category-icon" src="/static/images/all.png">
-      <span class="category-title">所有图书</span>
+      <span class="category-title">图书分类</span>
     </a>
   </div>
 </template>
+
+<script>
+import Toast from '../../../static/vant/toast/toast'
+export default {
+  methods: {
+    onerror () {
+      Toast(`图书分类板块暂未开放`)
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 .category {

@@ -1,11 +1,25 @@
 <template>
   <div class="my-list">
-    <van-cell size="large" title="我的书评" is-link icon="comment-o"></van-cell>
-    <van-cell size="large" title="申请采购" is-link icon="bag-o"></van-cell>
-    <van-cell size="large" title="新手帮助" is-link icon="question-o"></van-cell>
-    <van-cell size="large" title="意见反馈" is-link icon="records"></van-cell>
+    <van-toast id="van-toast" />
+    <van-cell size="large" title="我的书评" is-link icon="comment-o" @click="onerror('我的书评')"></van-cell>
+    <van-cell size="large" title="申请采购" is-link icon="bag-o" @click="onerror('申请采购')"></van-cell>
+    <van-cell size="large" title="新手帮助" is-link icon="question-o" @click="onerror('新手帮助')"></van-cell>
+    <van-cell size="large" title="意见反馈" is-link icon="records" @click="onerror('意见反馈')"></van-cell>
   </div>
 </template>
+
+<script>
+import Toast from '../../../static/vant/toast/toast'
+
+export default {
+  methods: {
+    onerror (msg) {
+      Toast(`${msg}功能暂未开放`)
+    }
+  }
+}
+</script>
+
 <style scoped>
 .my-list {
   margin-top: 10rpx;

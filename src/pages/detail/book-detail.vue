@@ -5,36 +5,40 @@
         <img class="image" :src="book.image">
       </div>
       <div class="info">
-        <p>{{book.name}}</p>
-        <van-rate readonly :value="book.rating" size="13"></van-rate>
+        <p>{{book.title}}</p>
+        <van-rate readonly :value="book.rating && (book.rating.average / 2)" size="13"></van-rate>
         <p class="author">{{book.author}}</p>
       </div>
       <div class="status">
         <p>还剩{{book.status}}本</p>
-        <p>借阅{{book.borrowTotal}}次</p>
+        <p>借阅{{book.borrow_count}}次</p>
       </div>
     </div>
-    <basic-info></basic-info>
+    <basic-info :book="book"></basic-info>
+    <btn-detail></btn-detail>
   </div>
 </template>
 <script>
 import basicInfo from '@/pages/detail/basic-info'
+import btnDetail from './btn-bar'
 
 export default {
   components: {
-    basicInfo
+    basicInfo,
+    btnDetail
   },
   data () {
     return {
-      book: {
-        image: '/static/images/books/1.jpg',
-        name: '人生海海',
-        author: '麦家',
-        rating: 4,
-        status: 2,
-        borrowTotal: 5
-      }
+      book: {}
     }
+  },
+  async mounted () {
+    console.log('params:', this.$root.$mp.query.id)
+    const id = this.$root.$mp.query.id
+    // const results = await this.$fly.get('/notice')
+    const result = await this.$fly.get('/book', { id })
+    this.book = result.book
+    console.log('book:', result.book.rating.average)
   }
 }
 </script>

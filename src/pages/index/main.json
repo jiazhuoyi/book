@@ -2,6 +2,7 @@
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",
     "van-search": "/static/vant/search/index",
-    "van-switch": "/static/vant/switch/index"
+    "van-switch": "/static/vant/switch/index",
+    "van-toast": "/static/vant/toast/index"
   }
 }
