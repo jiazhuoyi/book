@@ -16,10 +16,18 @@ export default {
       hotBooks: []
     }
   },
+  async onPullDownRefresh () {
+    await this.getBooks()
+    wx.stopPullDownRefresh()
+  },
   async mounted () {
-    const results = await this.$fly.get('/books',
-      { type: 'hot' })
-    this.hotBooks = results.books
+    await this.getBooks()
+  },
+  methods: {
+    async getBooks () {
+      const results = await this.$fly.get('/books', { type: 'hot' })
+      this.hotBooks = results.books
+    }
   }
 }
 </script>

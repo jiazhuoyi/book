@@ -16,13 +16,22 @@ export default {
       orders: []
     }
   },
+  async onPullDownRefresh () {
+    await this.getOrders()
+    wx.stopPullDownRefresh()
+  },
   async mounted () {
-    const result = await this.$fly.get('/order', {
-      start: 0,
-      limit: 10,
-      type: 'borrowed'
-    })
-    this.orders = result.orders
+    await this.getOrders()
+  },
+  methods: {
+    async getOrders () {
+      const result = await this.$fly.get('/order', {
+        start: 0,
+        limit: 10,
+        type: 'borrowed'
+      })
+      this.orders = result.orders
+    }
   }
 }
 </script>
