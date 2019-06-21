@@ -24,11 +24,6 @@ export default {
     }
   },
   mounted () {
-    // wx.login({
-    //   success(res) {
-    //     console.log('res:', res);
-    //   }
-    // })
     wx.authorize({
       scope: 'scope.record',
       success (res) {

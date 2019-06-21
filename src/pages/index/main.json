@@ -1,4 +1,7 @@
 {
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#fff",
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",
     "van-search": "/static/vant/search/index",

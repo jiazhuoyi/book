@@ -3,8 +3,9 @@
     <div class="all-book-title">
       <span class="title">所有图书</span>
       <div class="book-switch">
-        <span class="book-switch-text">可借阅</span>
-        <van-switch size="14px" :checked="checked" @change="changeChecked"/>
+        <span class="book-switch-text" v-show="checked">可借阅</span>
+        <span class="book-switch-text" v-show="!checked">全部</span>
+        <van-switch size="14px" :checked="checked" @change="onChange"/>
       </div>
     </div>
     <div class="all-book-item" v-for="book in books" :key="book.id" @click="goDetail(book.id)">
@@ -12,12 +13,9 @@
         <img class="all-book-img-photo" :src="book.image">
       </div>
       <div class="all-book-description">
-        <!-- <span class="description-title">{{book.name}}</span>
-        <span class="description-author">{{book.author}}</span>
-        <van-rate readonly :value="book.rating" size="15"></van-rate> -->
         <p class="description-title">{{book.title}}</p>
         <p class="description-author">{{book.author}}</p>
-        <van-rate readonly :value="book.rating.average / 2" size="15"></van-rate>
+        <van-rate allow-half readonly :value="book.rating.average / 2" size="15"></van-rate>
       </div>
       <div class="all-book-status">      
         <span>还剩{{book.status}}本</span>
@@ -29,31 +27,24 @@
 export default {
   data () {
     return {
-      checked: true,
+      checked: false,
       books: []
-      // book: {
-      //   image: '/static/images/books/2.jpg',
-      //   name: '坏血',
-      //   author: '[美]约翰·卡雷鲁（John Carreyrou）',
-      //   rating: 4.2,
-      //   status: 2
-      // }
     }
   },
   async mounted () {
     const results = await this.$fly.get('/books', { type: 'all' })
     this.books = results.books
-    console.log('result:', results)
-    console.log('books:', this.books)
   },
   methods: {
     goDetail (id) {
       mpvue.navigateTo({ url: `../detail/main?id=${id}` })
     },
-    changeChecked ({ res }) {
-      console.log('res:', res)
-      console.log('checked:', this.checked)
-      this.setData({ checked: res })
+    async onChange (event) {
+      this.checked = event.mp.detail
+      let type = 'noSeen'
+      if (!this.checked) type = 'all'
+      const results = await this.$fly.get('/books', { type })
+      this.books = results.books
     }
   }
 }

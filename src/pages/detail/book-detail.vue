@@ -1,12 +1,13 @@
 <template>
   <div class="book-detail">
+    <van-toast id="van-toast" />
     <div class="detail-header">
       <div class="picture">
         <img class="image" :src="book.image">
       </div>
       <div class="info">
         <p>{{book.title}}</p>
-        <van-rate readonly :value="book.rating && (book.rating.average / 2)" size="13"></van-rate>
+        <van-rate  allow-half readonly :value="book.rating && (book.rating.average / 2)" size="13"></van-rate>
         <p class="author">{{book.author}}</p>
       </div>
       <div class="status">
@@ -15,11 +16,17 @@
       </div>
     </div>
     <basic-info :book="book"></basic-info>
-    <btn-detail></btn-detail>
+    <btn-detail
+      :count="cartCount"
+      :btn-status="book.status"
+      :available-book="availableBook"
+      @btnclick="addCart">
+    </btn-detail>
   </div>
 </template>
 <script>
 import basicInfo from '@/pages/detail/basic-info'
+import Toast from '../../../static/vant/toast/toast'
 import btnDetail from './btn-bar'
 
 export default {
@@ -29,16 +36,28 @@ export default {
   },
   data () {
     return {
-      book: {}
+      book: {},
+      cartCount: 0,
+      availableBook: false
     }
   },
   async mounted () {
-    console.log('params:', this.$root.$mp.query.id)
     const id = this.$root.$mp.query.id
-    // const results = await this.$fly.get('/notice')
     const result = await this.$fly.get('/book', { id })
     this.book = result.book
-    console.log('book:', result.book.rating.average)
+    this.cartCount = result.cartInfo.cartCount
+    this.availableBook = result.cartInfo.availableBook
+    // const result1 = await this.$fly.get('/cart/count')
+    // this.cartCount = result1.cartCount
+  },
+  methods: {
+    async addCart () {
+      const result = await this.$fly.post('/cart',
+        { userId: '1231313', bookId: this.book._id })
+      this.cartCount = result.cartInfo.cartCount
+      this.availableBook = result.cartInfo.availableBook
+      Toast.success('加入成功')
+    }
   }
 }
 </script>

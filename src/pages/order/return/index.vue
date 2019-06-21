@@ -1,15 +1,28 @@
 <template>
   <div class="return">
-    <book v-for="i in 8" :key="i"></book>
+    <order-item v-for="order in orders" :key="order._id" :order="order"></order-item>
   </div>
 </template>
 
 <script>
-import book from '@/components/book'
+import orderItem from '../order-item'
 
 export default {
   components: {
-    book
+    orderItem
+  },
+  data () {
+    return {
+      orders: []
+    }
+  },
+  async mounted () {
+    const result = await this.$fly.get('/order', {
+      start: 0,
+      limit: 10,
+      type: 'returned'
+    })
+    this.orders = result.orders
   }
 }
 </script>

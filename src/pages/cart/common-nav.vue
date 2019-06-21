@@ -3,15 +3,15 @@
     <div class="footer"></div>
     <div class="nav-container">
      <div class="all-select">
-      <van-checkbox :value="checked"></van-checkbox>
+      <van-checkbox :value="checked" @change="select"></van-checkbox>
      </div>
      <div class="select-text">全选</div>
      <p class="total">
       图书总计:
-      <span class="num">5</span>
+      <span class="num">{{count}}</span>
       本
      </p>
-     <a href="" class="commit">
+     <a href="" class="commit" @click="commitOrder">
       下单
      </a>
     </div>
@@ -20,9 +20,23 @@
 
 <script>
 export default {
-  data () {
-    return {
-      checked: false
+  props: ['count', 'checked'],
+  // data () {
+  //   return {
+  //     checked: false
+  //   }
+  // },
+  methods: {
+    // onChange (event) {
+    //   this.checkedValue = event.mp.detail
+    //   this.bookCount = this.checkedValue.length
+    // },
+    select () {
+      this.checked = !this.checked
+      this.$emit('select', this.checked)
+    },
+    commitOrder () {
+      this.$emit('commit')
     }
   }
 }

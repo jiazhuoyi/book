@@ -10,7 +10,8 @@
     "pages/hot-books/main",
     "pages/order/bookshelf/main",
     "pages/order/borrow/main",
-    "pages/order/return/main"
+    "pages/order/return/main",
+    "pages/search/main"
   ],
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",

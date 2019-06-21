@@ -6,7 +6,7 @@
     <div class="book-content">
       <p class="book-title">{{book.title}}</p>
       <div class="book-status">
-        <van-rate readonly :value="book.rating && book.rating.average/2" size="15"></van-rate>
+        <van-rate allow-half :value="book.rating && book.rating.average/2" size="15"></van-rate>
         <van-tag type="danger" v-if="book.status == 0">暂不可借</van-tag>
         <van-tag type="success" v-else>还剩{{book.status}}本</van-tag>
       </div>

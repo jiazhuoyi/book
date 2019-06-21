@@ -7,7 +7,14 @@
       <div class="serach-area">
         <!-- <div class="serach"></div> -->
         <!-- <div class="serach"></div> -->
-        <van-search class="search" placeholder="书名/作则/ISBN" shape="round" background="#EE5E7B"></van-search>
+        <van-search 
+          class="search"
+          placeholder="书名/作则/ISBN"
+          shape="round"
+          disabled
+          background="#EE5E7B"
+          @click="goSearchPage">
+        </van-search>
       </div>
     </div>
     <category></category>
@@ -26,6 +33,14 @@ export default {
     commend,
     allBook,
     category
+  },
+  onPullDownRefresh () {
+    wx.stopPullDownRefresh()
+  },
+  methods: {
+    goSearchPage () {
+      mpvue.navigateTo({ url: '../search/main' })
+    }
   }
 }
 </script>

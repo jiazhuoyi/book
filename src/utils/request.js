@@ -9,7 +9,6 @@ fly.interceptors.request.use((request) => {
     title: '加载中',
     mask: true
   })
-  console.log(request)
 })
 
 fly.interceptors.response.use((response) => {
