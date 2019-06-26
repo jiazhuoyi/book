@@ -22,14 +22,6 @@ export default {
     return {
       logs: []
     }
-  },
-  mounted () {
-    wx.authorize({
-      scope: 'scope.record',
-      success (res) {
-        console.log('res:', res)
-      }
-    })
   }
 }
 </script>

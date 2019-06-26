@@ -4,7 +4,7 @@
     <van-cell size="large" title="我的书评" is-link icon="comment-o" @click="onerror('我的书评')"></van-cell>
     <van-cell size="large" title="申请采购" is-link icon="bag-o" @click="onerror('申请采购')"></van-cell>
     <van-cell size="large" title="新手帮助" is-link icon="question-o" @click="onerror('新手帮助')"></van-cell>
-    <van-cell size="large" title="意见反馈" is-link icon="records" @click="onerror('意见反馈')"></van-cell>
+    <van-cell size="large" title="意见反馈" is-link icon="records" url="../suggestion/main"></van-cell>
   </div>
 </template>
 

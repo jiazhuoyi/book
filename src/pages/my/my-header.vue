@@ -3,22 +3,32 @@
     <div class="my-header-box">
       <div class="header-container" @click="useScan">
         <div class="header-photo">
-           <img class="photo-img" src="/static/images/avatar.jpg">
+           <img class="photo-img" :src="user.avatarUrl">
         </div>
         <div class="header-info">
           <div class="center">
-            <span class="name">贾卓异</span>
+            <span class="name">{{user.nickName}}</span>
             <span class="id">员工编号: T13583</span>
           </div>
         </div>
         <div class="header-more"></div>
       </div>
     </div>
+    <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">123</button> -->
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    user () {
+      return this.$store.state.user
+    }
+  },
+  async mounted () {
+    const result = await this.$fly.get('/user-info')
+    this.$store.commit('setUser', result.user)
+  },
   methods: {
     useScan () {
       console.log('useScan')

@@ -11,12 +11,15 @@
     "pages/order/bookshelf/main",
     "pages/order/borrow/main",
     "pages/order/return/main",
-    "pages/search/main"
+    "pages/search/main",
+    "pages/login/main",
+    "pages/suggestion/main"
   ],
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",
     "van-tag": "/static/vant/tag/index",
-    "van-button": "/static/vant/button/index"
+    "van-button": "/static/vant/button/index",
+    "van-icon": "/static/vant/icon/index"
   },
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "登录",
+  "usingComponents": {
+    "van-button": "/static/vant/button/index",
+    "van-field": "/static/vant/field/index",
+    "van-toast": "/static/vant/toast/index"
+  }
+}

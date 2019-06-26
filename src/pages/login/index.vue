@@ -1,0 +1,94 @@
+<template>
+  <div class="login">
+    <div class="info">
+      <img class="logo" src="../../../static/images/avatar.jpg" alt="">
+      <span class="title">印象晓书馆</span>
+    </div>
+    <div class="tips">
+      <p clss="tip-title"> 申请获取以下权限</p>
+      <ul>
+        <li class="tip-item">获取你的公开信息(昵称、头像等)</li>
+      </ul>
+    </div>
+    <div class="auth-btn">
+      <van-button 
+        round
+        type="danger"
+        size="large"
+        open-type="getUserInfo"
+        @getuserinfo="getUserInfo">
+        微信授权
+      </van-button>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      code: ''
+    }
+  },
+  mounted () {
+    const _this = this
+    wx.login({
+      success (res) {
+        _this.code = res.code
+      }
+    })
+  },
+  methods: {
+    async getUserInfo (data) {
+      const _this = this
+      const detail = data.mp.detail
+      const result = await this.$fly.post('/login', {
+        code: _this.code,
+        encryptedData: detail.encryptedData,
+        iv: detail.iv,
+        signature: detail.signature
+      })
+      this.$store.commit('setUser', result.user)
+      wx.switchTab({ url: '../index/main' })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.login {
+  width: 100%;
+}
+.logo {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.info {
+  width: 100%;
+  height: 500rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  line-height: 100rpx;
+  font-size: 36rpx;
+}
+.tips {
+  padding: 0rpx 50rpx;
+  margin-bottom: 50rpx;
+}
+.tip-item {
+  font-size: 28rpx;
+  color: #9B9B9B;
+  margin-top: 20rpx;
+  list-style-type: disc;
+}
+.auth-btn {
+  width: 100%;
+  padding: 0rpx 50rpx;
+  box-sizing: border-box;
+}
+</style>
+

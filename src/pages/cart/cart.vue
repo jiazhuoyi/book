@@ -2,6 +2,7 @@
   <div class="cart">
     <van-dialog id="van-dialog" />
     <van-toast id="van-toast" />
+    <abnor title="购物车还是空的" text="去逛逛" v-if="loaded && !carts.length"></abnor>
     <van-checkbox-group :value="checkedValue" @change.stop="onChange">
       <div class="book" v-for="cart in carts" :key="cart._id">
         <van-swipe-cell id="swipe-cell" async-close right-width="65" @close="removeBook($event, id)">
@@ -28,19 +29,22 @@
 
 <script>
 import commonNav from '@/pages/cart/common-nav'
+import abnor from '@/components/abnor'
 import Dialog from '../../../static/vant/dialog/dialog'
 import Toast from '../../../static/vant/toast/toast'
 
 export default {
   components: {
-    commonNav
+    commonNav,
+    abnor
   },
   data () {
     return {
       carts: [],
       checkedValue: [],
       bookCount: 0,
-      totalChecked: false
+      totalChecked: false,
+      loaded: false
     }
   },
   async onShow () {
@@ -64,6 +68,7 @@ export default {
     async getCartList () {
       const result = await this.$fly.get('/cart')
       this.carts = result.carts
+      this.loaded = true
     },
     selectAll (checked) {
       if (checked) {
@@ -95,8 +100,7 @@ export default {
       }
       await this.$fly.post('/order',
         {
-          bookIds: this.checkedValue,
-          userId: '1231313'
+          bookIds: this.checkedValue
         })
       Toast.success('下单成功，正在审核')
       await this.getCartList()

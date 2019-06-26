@@ -26,6 +26,13 @@ export default {
   },
   log () {
     console.log(`log at:${Date.now()}`)
+  },
+  async onLaunch () {
+    if (wx.getStorageSync('book_token')) {
+      wx.switchTab({ url: 'pages/index/main' })
+    } else {
+      mpvue.navigateTo({ url: 'pages/login/main' })
+    }
   }
 }
 </script>

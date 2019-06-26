@@ -47,8 +47,6 @@ export default {
     this.book = result.book
     this.cartCount = result.cartInfo.cartCount
     this.availableBook = result.cartInfo.availableBook
-    // const result1 = await this.$fly.get('/cart/count')
-    // this.cartCount = result1.cartCount
   },
   methods: {
     async addCart () {

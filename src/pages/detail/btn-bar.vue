@@ -19,7 +19,7 @@
       <a href="" v-if="btnStatus > 0 && availableBook" class="commit" @click="addCart">
        加入购物车
       </a>
-      <a href="" v-if="btnStatus == 0 && availableBook" class="commit btn-disable">
+      <a href="" v-if="btnStatus <= 0 && availableBook" class="commit btn-disable">
        暂不可借
       </a>
       <a href="" v-if="!availableBook" class="commit btn-disable">
@@ -36,13 +36,14 @@ export default {
       type: Number,
       default: 0
     },
+
     btnStatus: {
       type: Number,
       default: 0
     },
     availableBook: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data () {
@@ -55,7 +56,6 @@ export default {
       wx.switchTab({ url: '../cart/main' })
     },
     addCart (e) {
-      console.log('e:', e)
       this.$emit('btnclick')
     }
   }
