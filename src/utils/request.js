@@ -11,12 +11,13 @@ fly.interceptors.request.use((request) => {
     mpvue.navigateTo({ url: '/pages/login/main' })
     return Promise.resolve('no token')
   }
-  console.log('request.headers:', request)
   request.headers.Authorization = `Bearer ${token}`
-  wx.showLoading({
-    title: '加载中',
-    mask: true
-  })
+  if (!request.noLoading) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+  }
 })
 
 fly.interceptors.response.use((response) => {
@@ -26,7 +27,9 @@ fly.interceptors.response.use((response) => {
   wx.hideLoading()
   return response.data
 }, (error) => {
-  console.log('error:', error)
+  if (error.status === 401) {
+    mpvue.navigateTo({ url: '/pages/login/main' })
+  }
   wx.hideLoading()
 })
 

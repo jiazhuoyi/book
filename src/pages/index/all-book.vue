@@ -5,7 +5,8 @@
       <div class="book-switch">
         <span class="book-switch-text" v-show="checked">可借阅</span>
         <span class="book-switch-text" v-show="!checked">全部</span>
-        <van-switch size="14px" :checked="checked" @change="onChange"/>
+        <van-switch size="20px" :checked="checked" @change="onChange"/>
+        <!-- <van-switch size="14px" :checked="checked" @change="onChange"/> -->
       </div>
     </div>
     <div class="all-book-item" v-for="book in books" :key="book.id" @click="goDetail(book.id)">
@@ -55,19 +56,18 @@ export default {
   margin-top: 10rpx;
   background-color: #fff;
 }
-
 .all-book-title {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
   font-size: 28rpx;
-  padding: 30rpx;
-  overflow: hidden;
-}
-.title {
-  line-height: 40rpx;
+  padding: 30rpx 30rpx 0 30rpx;
+  justify-content: space-between;
+  align-items: center;
 }
 .book-switch {
-  float: right;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 .book-switch-text {
   margin-right: 20rpx;
