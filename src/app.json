@@ -13,7 +13,8 @@
     "pages/order/return/main",
     "pages/search/main",
     "pages/login/main",
-    "pages/suggestion/main"
+    "pages/suggestion/main",
+    "pages/purchase/main"
   ],
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",
