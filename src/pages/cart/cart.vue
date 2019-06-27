@@ -106,13 +106,18 @@ export default {
       await this.getCartList()
     },
     async removeBook (event, id) {
-      Dialog.alert({
+      const instance = event.mp.detail.instance
+      Dialog.confirm({
         message: '你确定要删除吗?'
       }).then(async () => {
         // on close
         await this.$fly.delete('/cart', { bookId: id })
         Toast.success('删除成功')
+        instance.close()
         await this.getCartList()
+      }).catch(() => {
+        instance.close()
+        console.log('取消')
       })
     }
   }
