@@ -5,7 +5,7 @@
     <abnor title="购物车还是空的" text="去逛逛" v-if="loaded && !carts.length"></abnor>
     <van-checkbox-group :value="checkedValue" @change.stop="onChange">
       <div class="book" v-for="cart in carts" :key="cart._id">
-        <van-swipe-cell id="swipe-cell" async-close right-width="65" @close="removeBook($event, id)">
+        <van-swipe-cell id="swipe-cell" async-close right-width="65" @close="removeBook($event, cart.book._id)">
           <div class="cart-container">
             <div class="select" @click.stop="toggle(cart.book._id, $event)">
               <van-checkbox :name="cart.book._id" :class="'checkboxes-'+cart.book._id"></van-checkbox>
@@ -54,9 +54,9 @@ export default {
     await this.refreshCart()
     wx.stopPullDownRefresh()
   },
-  async mounted () {
-    await this.getCartList()
-  },
+  // async mounted () {
+  //   await this.getCartList()
+  // },
   methods: {
     async refreshCart () {
       this.carts = []
@@ -107,13 +107,20 @@ export default {
     },
     async removeBook (event, id) {
       const instance = event.mp.detail.instance
+      console.log('mp:', event.mp)
       Dialog.confirm({
         message: '你确定要删除吗?'
       }).then(async () => {
-        // on close
+        // 删除已选中的checkedValue
+        const idIndex = this.checkedValue.indexOf(id)
+        if (idIndex !== -1) {
+          this.checkedValue.splice(idIndex, 1)
+        }
         await this.$fly.delete('/cart', { bookId: id })
         Toast.success('删除成功')
         instance.close()
+        this.bookCount = this.checkedValue.length
+        console.log('---------图书总数量:', this.bookCount)
         await this.getCartList()
       }).catch(() => {
         instance.close()
