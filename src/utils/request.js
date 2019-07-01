@@ -27,6 +27,7 @@ fly.interceptors.response.use((response) => {
   wx.hideLoading()
   return response.data
 }, (error) => {
+  console.log('请求错误:', error)
   if (error.status === 401) {
     mpvue.navigateTo({ url: '/pages/login/main' })
   }

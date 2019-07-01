@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "绑定员工编号",
+  "usingComponents": {
+    "van-row": "/static/vant/row/index",
+    "van-col": "/static/vant/col/index",
+    "van-toast": "/static/vant/toast/index",
+    "van-field": "/static/vant/field/index",
+    "van-cell-group": "/static/vant/cell-group/index",
+    "van-button": "/static/vant/button/index"
+  }
+}

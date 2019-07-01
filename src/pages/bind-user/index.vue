@@ -1,0 +1,70 @@
+<template>
+  <div class="bind-user">
+    <van-toast id="van-toast" />
+    <van-cell-group>
+      <van-field
+        :value="user.emid"
+        id="emid"
+        required
+        label="员工编号"
+        :error="emidError"
+        placeholder="请输入员工编号(必填项)"
+        @change="change">
+      </van-field>
+    </van-cell-group>
+    <div class="commit">
+      <van-button 
+        round
+        type="danger"
+        size="large"
+        @click="bindUser">
+        提交申请
+      </van-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import Toast from '../../../static/vant/toast/toast'
+
+export default {
+  data () {
+    return {
+      user: {},
+      emidError: false
+    }
+  },
+  methods: {
+    async bindUser () {
+      if (!this.user.emid) {
+        this.emidError = true
+        return
+      }
+      const result = await this.$fly.post('/user-emid', { emid: this.user.emid })
+      this.$store.commit('setUser', result.user)
+      Toast.success('绑定成功')
+    },
+    change (event) {
+      this.user[event.mp.target.id] = event.mp.detail
+    },
+    async mounted () {
+      const result = await this.$fly.get('/user-info')
+      this.$store.commit('setUser', result.user)
+      this.user = result.user
+    }
+  }
+}
+</script>
+
+<style scoped>
+.commit {
+  margin-top: 30rpx;
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+  /* display: flex;
+  justify-content: center; */
+}
+</style>
+
+

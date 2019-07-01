@@ -1,20 +1,21 @@
 <template>
   <div class="my-header">
     <div class="my-header-box">
-      <div class="header-container" @click="useScan">
+      <div class="header-container">
         <div class="header-photo">
            <img class="photo-img" :src="user.avatarUrl">
         </div>
         <div class="header-info">
           <div class="center">
             <span class="name">{{user.nickName}}</span>
-            <span class="id">员工编号: T13583</span>
+            <span class="emid">{{ '员工编号：'+user.emid || '暂未绑定员工编号'}}</span>
           </div>
         </div>
-        <div class="header-more"></div>
+        <a class="header-more" hover-class="none" href="../bind-user/main">
+          <van-icon name="arrow" />
+        </a>
       </div>
     </div>
-    <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">123</button> -->
   </div>
 </template>
 
@@ -89,7 +90,7 @@ export default {
   font-size: 42rpx;
   font-weight: 600;
 }
-.id {
+.emid {
   display: block;
   font-size: 28rpx;
   color: #9B9B9B;
@@ -101,6 +102,10 @@ export default {
 } */
 .header-more {
   width: 10%;
+  margin-right: 30rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 </style>
 
