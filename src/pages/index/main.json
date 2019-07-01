@@ -2,6 +2,7 @@
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
   "backgroundColor": "#fff",
+  "onReachBottomDistance": 300,
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",
     "van-search": "/static/vant/search/index",

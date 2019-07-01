@@ -5,7 +5,7 @@
       </div>
       <div class="hot-book">
         <a class="book-item"
-          v-for="book in hotBooks"
+          v-for="book in books"
           :key="book.id"
           hover-class="none" 
           :href="'/pages/detail/main?id='+book.id">
@@ -18,16 +18,7 @@
 
 <script>
 export default {
-  data () {
-    return {
-      hotBooks: []
-    }
-  },
-  async mounted () {
-    const results = await this.$fly.get('/books',
-      { type: 'hot', start: 0, limit: 4 })
-    this.hotBooks = results.books
-  }
+  props: ['books']
 }
 </script>
 

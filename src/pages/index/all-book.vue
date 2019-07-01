@@ -26,26 +26,14 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
-      checked: false,
-      books: []
-    }
-  },
-  async mounted () {
-    const results = await this.$fly.get('/books', { type: 'all' })
-    this.books = results.books
-  },
+  props: ['books', 'checked'],
   methods: {
     goDetail (id) {
       mpvue.navigateTo({ url: `../detail/main?id=${id}` })
     },
     async onChange (event) {
       this.checked = event.mp.detail
-      let type = 'noSeen'
-      if (!this.checked) type = 'all'
-      const results = await this.$fly.get('/books', { type })
-      this.books = results.books
+      this.$emit('change', this.checked)
     }
   }
 }
