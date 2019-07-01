@@ -1,52 +1,49 @@
 <template>
   <div class="new-books">
     <book v-for="book in newBooks" :key="book.id" :book="book"></book>
-    <div class="loadmore">----正在加载----</div>
+    <loadmore :loading="loading"></loadmore>
   </div>
 </template>
 
 <script>
 import book from '@/components/book'
+import loadmore from '@/components/loadmore'
 
 export default {
   components: {
-    book
+    book,
+    loadmore
   },
   data () {
     return {
       newBooks: [],
       start: 0,
       limit: 12,
-      show: true
+      loading: true
     }
   },
   async onPullDownRefresh () {
-    await this.getBooks()
+    this.newBooks = await this.getBooks(0, this.limit)
     wx.stopPullDownRefresh()
   },
   async onReachBottom () {
-    this.show = true
     this.start = this.newBooks.length
-    const results = await this.$fly.get('/books',
-      { type: 'new', start: this.start, limit: this.limit }, { noLoading: true })
-    this.newBooks = this.newBooks.concat(results.books)
-    this.show = false
+    const books = await this.getBooks(this.start, this.limit)
+    this.newBooks = this.newBooks.concat(books)
   },
   async mounted () {
-    await this.getBooks()
+    this.newBooks = await this.getBooks(0, this.limit)
   },
   methods: {
-    async getBooks () {
+    async getBooks (start, limit) {
+      this.loading = true
       const results = await this.$fly.get('/books',
-        { type: 'new', start: 0, limit: this.limit })
-      this.newBooks = results.books
+        { type: 'new', start, limit }, { noLoading: true })
+      if (results.books.length < this.limit) {
+        this.loading = false
+      }
+      return results.books
     }
   }
 }
 </script>
-<style scoped>
-.loadmore {
-  display: flex;
-  justify-content: center;
-}
-</style>

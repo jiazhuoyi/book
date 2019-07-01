@@ -1,12 +1,29 @@
 <template>
   <div class="loadmore">
-    <div class="wrapper">
+    <div class="wrapper" v-if="loading">
       <div class="bounce item1"></div>
       <div class="bounce item2"></div>
       <div class="bounce item3"></div>
     </div>
+    <div class="absence" v-else>
+      <span class="line"></span>
+      <span class="content">到底啦</span>
+      <span class="line"></span>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    loading: {
+      type: Boolean,
+      defalut: true
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 .loadmore {
@@ -26,15 +43,18 @@
   background-color: #EE5E7B;
   border-radius: 50%;
   animation: bouncedelay 1.4s infinite ease-in-out;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
   animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
   will-change: auto;
   transform: translate3d(0, 0, 0);
 }
 .item1 {
-  animation-delay: -1.5s;
+  -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 .item2 {
+  -webkit-animation-delay: -0.32s;
   animation-delay: -0.16s;
 }
 @keyframes bouncedelay {
@@ -44,5 +64,28 @@
   40% {
     transform: scale(1.0);
   }
+}
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+.absence {
+  line-height: 120rpx;
+  height: 120rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+.line {
+  display: inline-block;
+  width: 100rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+.content {
+  color: #e0e0e0;
+  margin: 0 10rpx;
 }
 </style>
