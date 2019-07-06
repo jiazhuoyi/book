@@ -38,74 +38,44 @@ export default {
   }
 }
 </script>
-<style scoped>
-.all-book {
-  position: relative;
-  margin-top: 10rpx;
-  background-color: #fff;
-}
-.all-book-title {
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 28rpx;
-  padding: 30rpx 30rpx 0 30rpx;
-  justify-content: space-between;
-  align-items: center;
-}
-.book-switch {
-  display: flex;
-  align-items: center;
-}
-.book-switch-text {
-  margin-right: 20rpx;
-}
-.all-book-item {
-  display: flex;
-  padding: 20rpx 30rpx;
-  border-bottom: 1px solid #e0e0e0;
-  height: 200rpx;
-}
-.all-book-item:first-child {
-  padding-top: 0rpx;
-}
-.all-book-img {
-  width: 20%;
-}
-.all-book-img-photo {
-  width: 100%;
-  height: 200rpx;
-}
-.all-book-description {
-  flex: 1;
-  margin-left: 15rpx;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-}
-.description-title {
-  font-size: 28rpx;
-}
-
-.description-author {
-  font-size: 24rpx;
-  color: #999;
-} 
-.all-book-status {
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28rpx;
-}
-/* .description-title {
-  display: block;
-  font-size: 36rpx;
-}
-.description-author {
-  display: block;
-  font-size: 32rpx;
-  color: #9B9B9B;
-  font-weight: 300;
-} */
+<style lang="stylus" scoped>
+.all-book
+  position: relative
+  margin-top: $small-margin
+  background-color: $whiteColor
+  &-title
+    display: flex
+    width: 100%
+    box-sizing: border-box
+    font-size: $normal-fs
+    padding: $padding $padding 0 $padding
+    justify-content: space-between
+    align-items: center
+    .book-switch
+      display: flex
+      align-items: center
+      &-text
+        margin-right: $margin
+  &-item
+    display: flex
+    padding: $padding
+    border-bottom: 1px solid #e0e0e0
+    .all-book-img
+      &-photo
+        width: $img-width
+        height: $img-height
+    .all-book-description
+      flex: 1
+      margin-left: $margin
+      .description-title
+        font-size: $normal-fs
+      .description-author
+        font-size: $small-fs
+        color: $gray-text-color
+    .all-book-status
+      width: 20%
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: $normal-fs
 </style>

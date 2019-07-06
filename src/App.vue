@@ -37,7 +37,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
+@import './stylus/index.styl'
 .container {
   height: 100%;
   display: flex;
@@ -55,3 +56,4 @@ export default {
   -o-transition: width 2s;
 }
 </style>
+

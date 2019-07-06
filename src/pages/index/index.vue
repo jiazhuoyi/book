@@ -95,45 +95,28 @@ export default {
 </script>
 
 
-<style scoped>
-.home {
-  background-color: #E2E2E2;
-  /* padding-bottom: 50rpx; */
-}
-.header {
-  width: 100%;
-  height: 400rpx;
-  background-color: #EE5E7B;
-  z-index: 1;
-}
-.title {
-  width: 100%;
-  height: 200rpx;
-  text-align: center;
-  line-height: 200rpx;
-  color: #fff;
-  font-size: .5rem;
-}
-.content {
-  display: inline-block;
-}
-.serach-area {
-  height: 180rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.search {
-  width: 100%;
-}
-.loading {
-  background-color: #fff;
-}
-/* .serach {
-  width: 80%;
-  border-radius: 1rem;
-  height: .7rem;
-  line-height: .7rem;
-  background-color: #fff;
-} */
-</style>
+<style lang="stylus" scoped>
+.home
+  background-color: $bg-color
+  .header 
+    width: 100%
+    height: 400rpx
+    background-color: $theme-color
+    z-index: 1
+    .title
+      width: 100%
+      height: 200rpx
+      text-align: center
+      line-height: 200rpx
+      color: $text-color
+      font-size: .5rem
+    .serach-area
+      height: 180rpx
+      display: flex
+      justify-content: center
+      align-items: center
+      .search
+        width: 100%
+  .loading
+    background-color: $whiteColor
+</stylescoped>
