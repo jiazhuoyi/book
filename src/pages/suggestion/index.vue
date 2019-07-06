@@ -47,18 +47,16 @@ export default {
 </script>
 
 
-<style scoped>
-.suggestion-wrapper {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 30rpx;
-}
-.title {
-  font-size: 28rpx;
-  margin-bottom: 30rpx;
-}
-.btn {
-  margin-top: 80rpx;
-}
+<style lang="stylus" scoped>
+.suggestion
+  &-wrapper
+    width: 100%
+    box-sizing: border-box
+    padding: $padding
+    .title
+      font-size: $normal-fs
+      margin-bottom: $margin
+    .btn
+      margin-top: 80rpx
 </style>
 

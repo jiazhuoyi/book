@@ -74,15 +74,11 @@ export default {
 }
 </script>
 
-<style scoped>
-.commit {
-  margin-top: 30rpx;
-  padding: 0rpx 30rpx;
-  box-sizing: border-box;
-  width: 100%;
-  /* display: flex;
-  justify-content: center; */
-}
+<style lang="stylus" scoped>
+.commit
+  margin-top: $margin
+  padding: 0rpx $padding
+  box-sizing: border-box
 </style>
 
 

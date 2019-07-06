@@ -23,54 +23,33 @@ export default {
       default: true
     }
   }
-  // data () {
-  //   return {
-  //     book: {
-  //       name: '追风筝的人',
-  //       rating: 3.5,
-  //       status: 0,
-  //       author: 'The Kite Runner'
-  //     }
-  //   }
-  // }
 }
 </script>
 
-<style scoped>
-.book {
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 30rpx;
-  border-bottom: 1px solid #e0e0e0;
+<style lang="stylus" scoped>
+.book
+  width: 100%
+  overflow: hidden
+  box-sizing: border-box
+  padding: $padding
+  border-bottom: 1px solid $border-color
   display: flex;
-}
-.picture {
-  margin-right: 30rpx;
-  width: 140rpx;
-  height: 200rpx;
-}
-/* .content {
-  margin-left: 30rpx;
-} */
-.img {
-  width: 100%;
-  height: 100%;
-}
-.book-content {
-  flex: 1;
-}
-.book-title {
-  font-size: 28rpx;
-}
-
-.book-author {
-  font-size: 24rpx;
-  color: #999;
-} 
-.book-status {
-  display: flex;
-  justify-content: space-between;
-}
+  .picture
+    margin-right: $margin
+    width: $img-width
+    height: $img-height
+    .img
+      width: 100%
+      height: 100%
+  .book-content
+    flex: 1
+    .book-title
+      font-size: $normal-fs
+    .book-author
+      font-size: $small-fs
+      color: $gray-text-color
+    .book-status
+      display: flex
+      justify-content: space-between
 </style>
 

@@ -43,69 +43,53 @@ export default {
 }
 </script>
 
-<style scoped>
-.my-header {
-  width: 100%;
-  height: 250rpx;
-  background-color: #EE5E7B;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 50rpx;
-}
-.my-header-box {
-  width: 90%;
-  height: 80%;
-  background-color: #fff;
-  border-radius: 10rpx;
-  opacity: 0.9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.header-container {
-  width: 100%;
-  height: 80%;
-  display: flex;
-}
-.header-photo {
-  width: 30%;
-  text-align: center;
-}
-.photo-img {
-  width: 80%;
-  height: 100%;
-  border-radius: 50%;
-}
-.header-info {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-}
-.name {
-  display: block;
-  font-size: 42rpx;
-  font-weight: 600;
-}
-.emid {
-  display: block;
-  font-size: 28rpx;
-  color: #9B9B9B;
-  margin-top: 10rpx;
-}
-/* .name {
-  display: block;
-
-} */
-.header-more {
-  width: 10%;
-  margin-right: 30rpx;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+<style lang="stylus" scoped>
+.my-header
+  width: 100%
+  height: 250rpx
+  background-color: $theme-color
+  display: flex
+  justify-content: center
+  align-items: center
+  padding-bottom: 50rpx
+  &-box
+    width: 90%
+    height: 80%
+    background-color: $whiteColor
+    border-radius: 10rpx
+    opacity: 0.9
+    display: flex
+    justify-content: center
+    align-items: center
+  .header-container
+    width: 100%
+    height: 80%
+    display: flex
+    .header-photo
+      width: 30%
+      text-align: center
+      .photo-img
+        width: 80%
+        height: 100%
+        border-radius: 50%
+    .header-info
+      flex: 1
+      display: flex
+      align-items: center
+      .name
+        display: block
+        font-size: 42rpx
+        font-weight: 600
+      .emid
+        display: block
+        font-size: $normal-fs
+        color: $gray-text-color
+        margin-top: $small-margin
+    .header-more
+      width: 10%
+      margin-right: $margin
+      display: flex
+      justify-content: flex-end
+      align-items: center
 </style>
 

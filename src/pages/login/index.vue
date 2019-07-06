@@ -5,9 +5,9 @@
       <span class="title">印象晓书馆</span>
     </div>
     <div class="tips">
-      <p clss="tip-title"> 申请获取以下权限</p>
+      <p clss="tips-title"> 申请获取以下权限</p>
       <ul>
-        <li class="tip-item">获取你的公开信息(昵称、头像等)</li>
+        <li class="tips-item">获取你的公开信息(昵称、头像等)</li>
       </ul>
     </div>
     <div class="auth-btn">
@@ -54,41 +54,33 @@ export default {
 }
 </script>
 
-<style scoped>
-.login {
-  width: 100%;
-}
-.logo {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 50%;
-}
-.info {
-  width: 100%;
-  height: 500rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.title {
-  line-height: 100rpx;
-  font-size: 36rpx;
-}
-.tips {
-  padding: 0rpx 50rpx;
-  margin-bottom: 50rpx;
-}
-.tip-item {
-  font-size: 28rpx;
-  color: #9B9B9B;
-  margin-top: 20rpx;
-  list-style-type: disc;
-}
-.auth-btn {
-  width: 100%;
-  padding: 0rpx 50rpx;
-  box-sizing: border-box;
-}
+<style lang="stylus" scoped>
+.login
+  .info
+    width: 100%
+    height: 500rpx
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    .logo
+      width: 200rpx
+      height: 200rpx
+      border-radius: 50%
+    .title
+      line-height: 100rpx
+      font-size: $large-fs
+  .tips
+    padding: 0rpx 50rpx
+    margin-bottom: 50rpx
+    &-item
+      font-size: $normal-fs
+      color: $gray-text-color
+      margin-top: $margin
+      list-style-type: disc
+  .auth-btn
+    width: 100%
+    padding: 0rpx 50rpx
+    box-sizing: border-box
 </style>
 

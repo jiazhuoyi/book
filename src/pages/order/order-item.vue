@@ -30,42 +30,33 @@ export default {
 }
 </script>
 
-<style scoped>
-.order {
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 30rpx;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-}
-.picture {
-  margin-right: 30rpx;
-  width: 140rpx;
-  height: 200rpx;
-}
-.img {
-  width: 100%;
-  height: 100%;
-}
-.order-content {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-}
-.book-title {
-  font-size: 28rpx;
-}
-
-.book-author {
-  font-size: 24rpx;
-  color: #999;
-} 
-.book-status {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
+<style lang="stylus" scoped>
+.order
+  overflow: hidden
+  box-sizing: border-box
+  padding: $padding
+  border-bottom: 1px solid $border-color
+  display: flex
+  .picture
+    margin-right: $margin
+    width: $img-width
+    height: $img-height
+    .img
+      width: 100%
+      height: 100%
+  .order-content
+    flex: 1
+    display: flex
+    justify-content: space-between
+    .book-title
+      font-size: $normal-fs
+    .book-author
+      font-size: $small-fs
+      color: $gray-text-color
+    .book-status
+      display: flex
+      flex-direction: column
+      align-items: flex-end
+      justify-content: center
 </style>
 

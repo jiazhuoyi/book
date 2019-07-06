@@ -1,6 +1,5 @@
 <template>
   <div class="my">
-    <!-- <div class="header"></div> -->
     <my-header></my-header>
     <my-order></my-order>
     <my-list></my-list>
@@ -26,8 +25,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.my {
-  background-color: #E2E2E2;
-}
+<style lang="stylus" scoped>
+.my
+  background-color: $bg-color
 </style>

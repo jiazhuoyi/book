@@ -25,67 +25,63 @@ export default {
 </script>
 
 
+<style lang="stylus" scoped>
+.loadmore
+  .wrapper
+    margin: auto
+    width: 120rpx
+    display: flex
+    height: 80rpx
+    justify-content: space-between
+    align-items: center
+    .bounce
+      width: 20rpx
+      height: 20rpx
+      background-color: $theme-color
+      border-radius: 50%
+      animation: bouncedelay 1.4s infinite ease-in-out
+      -webkit-animation: bouncedelay 1.4s infinite ease-in-out
+      animation-fill-mode: both
+      -webkit-animation-fill-mode: both
+      will-change: auto
+      transform: translate3d(0, 0, 0)
+    .item1
+      -webkit-animation-delay: -0.32s
+      animation-delay: -0.32s
+    .item2
+      -webkit-animation-delay: -0.32s
+      animation-delay: -0.16s
+  .absence
+    line-height: 120rpx
+    height: 120rpx
+    font-size: $normal-fs
+    display: flex
+    justify-content: center
+    align-items: center
+    .line
+      display: inline-block
+      width: 100rpx
+      border-bottom: 1rpx solid $border-color
+    .content
+      color: $border-color
+      margin: 0 $small-margin
+</style>
 <style scoped>
-.loadmore {
-  width: 100%;
-}
-.wrapper {
-  margin: auto;
-  width: 120rpx;
-  display: flex;
-  height: 80rpx;
-  justify-content: space-between;
-  align-items: center;
-}
-.bounce {
-  width: 20rpx;
-  height: 20rpx;
-  background-color: #EE5E7B;
-  border-radius: 50%;
-  animation: bouncedelay 1.4s infinite ease-in-out;
-  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
-  animation-fill-mode: both;
-  -webkit-animation-fill-mode: both;
-  will-change: auto;
-  transform: translate3d(0, 0, 0);
-}
-.item1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-.item2 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.16s;
-}
 @keyframes bouncedelay {
   0%, 80%, 100% {
-    transform: scale(0.0);
+    transform: scale(0.0)
   }
   40% {
-    transform: scale(1.0);
+    transform: scale(1.0)
   }
 }
 @-webkit-keyframes bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0.0) }
-  40% { -webkit-transform: scale(1.0) }
-}
-
-.absence {
-  line-height: 120rpx;
-  height: 120rpx;
-  font-size: 28rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* text-align: center; */
-}
-.line {
-  display: inline-block;
-  width: 100rpx;
-  border-bottom: 1rpx solid #e0e0e0;
-}
-.content {
-  color: #e0e0e0;
-  margin: 0 10rpx;
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0)
+  }
+  40% {
+    -webkit-transform: scale(1.0)
+  }
 }
 </style>
+

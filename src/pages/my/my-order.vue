@@ -15,27 +15,23 @@
   </div>
 </template>
 
-<style scoped>
-.my-order {
-  width: 100%;
-  display: flex;
-  margin-top: -40rpx;
-  padding: 40rpx 0;
-  border-top-left-radius: 40rpx;
-  border-top-right-radius: 40rpx;
-  z-index: 2;
-  background-color: #fff;
-}
-.my-order-item {
-  flex: 1;
-  text-align: center;
-}
-.my-order-icon {
-  width: 70rpx;
-  height: 70rpx;
-}
-.my-order-title {
-  display: block;
-  font-size: 30rpx;
-}
+<style lang="stylus" scoped>
+.my-order
+  width: 100%
+  display: flex
+  margin-top: -40rpx
+  padding: 40rpx 0
+  border-top-left-radius: 40rpx
+  border-top-right-radius: 40rpx
+  z-index: 2
+  background-color: #fff
+  &-item
+    flex: 1
+    text-align: center
+    .my-order-icon
+      width: 70rpx
+      height: 70rpx
+    .my-order-title
+      display: block
+      font-size: $margin
 </style>

@@ -24,29 +24,22 @@ export default {
 </script>
 
 
-<style scoped>
-.search-history {
-  padding: 30rpx;
-}
-.header {
-  font-size: 28rpx;
-  /* line-height: 50rpx; */
-}
-.delete {
-  float: right;
-  font-size: 28rpx;
-}
-.history-container {
-  display: flex;
-  flex-wrap: wrap;
-  /* padding: 20rpx 0; */
-}
-.history-item {
-  margin-top: 20rpx;
-  padding: 10rpx;
-  margin-right: 20rpx;
-  background: #f5f5f5;
-  font-size: 24rpx;
-  color: #686868;
-}
+<style lang="stylus" scoped>
+.search-history
+  padding: $padding
+  .header
+    font-size: $normal-fs
+    .delete
+      float: right
+      font-size: $normal-fs
+  .history-container
+    display: flex
+    flex-wrap: wrap
+    .history-item
+      margin-top: $margin
+      padding: $small-padding
+      margin-right: $margin
+      background: $search-bg-color
+      font-size: $small-fs
+      color: $search-fs-color
 </style>

@@ -22,19 +22,16 @@ export default {
 }
 </script>
 
-<style scoped>
-.help-detail {
-  padding: 30rpx;
-}
-.question {
-  padding-bottom: 30rpx;
-  border-bottom: 1px solid #e0e0e0;
-}
-.answer {
-  padding-top: 30rpx;
-  font-size: 28rpx;
-  line-height: 40rpx;
-}
+<style lang="stylus" scoped>
+.help-detail
+  padding: $padding
+  .question
+    padding-bottom: $padding
+    border-bottom: 1px solid $border-color
+  .answer
+    padding-top: $normal-fs
+    font-size: $normal-fs
+    line-height: 40rpx
 </style>
 
 

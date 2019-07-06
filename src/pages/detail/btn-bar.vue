@@ -62,58 +62,45 @@ export default {
 }
 </script>
 
-<style scoped>
-/* .common-nav {
-} */
-.footer {
-  width: 100%;
-  height: 100rpx;
-  background-color: #fff;
-}
-.bar-container {
-  display: flex;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  height: 100rpx;
-  background: hsla(0,0%,100%,.95);
-}
-.like {
-  flex: 1;
-}
-.cart {
-  flex: 1;
-}
-.bar-item {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
-.bar-icon {
-  height: 60rpx;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-.bar-text {
-  font-size: 20rpx;
-  line-height: 40rpx;
-  color: #999;
-  display: block;
-}
-.commit {
-  /* width: 30%; */
-  flex: 2;
-  line-height: 100rpx;
-  text-align: center;
-  background-color: #e4393c;
-  color: #fff;
-}
-
-.btn-disable {
-  opacity: 0.2;
-}
+<style lang="stylus" scoped>
+.btn-bar
+  .footer
+    width: 100%
+    height: 100rpx
+    background-color: $cover-bg-color
+  .bar-container
+    display: flex
+    position: fixed
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 99
+    height: 100rpx
+    background: hsla(0,0%,100%,.95)
+    .like
+      flex: 1
+    .cart
+      flex: 1
+    .bar-item
+      display: flex
+      flex-direction: column
+      align-items: center
+      .bar-icon
+        height: 60rpx
+        display: flex
+        justify-content: center
+        align-items: flex-end
+      .bar-text
+        font-size: $mini-fs
+        line-height: 40rpx
+        color: $gray-text-color
+        display: block
+    .commit 
+      flex: 2
+      line-height: 100rpx
+      text-align: center
+      background-color: $warnning-color
+      color: $text-color
+    .btn-disable
+      opacity: 0.2
 </style>

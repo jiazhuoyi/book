@@ -20,12 +20,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.my-list {
-  margin-top: 10rpx;
-  width: 100%;
-  height: 300rpx;
-  background-color: #fff;
-}
+<style lang="stylus" scoped>
+.my-list
+  margin-top: $small-margin
+  background-color: #fff
 </style>
 

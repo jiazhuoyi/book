@@ -3,7 +3,6 @@
     "pages/index/main",
     "pages/logs/main",
     "pages/my/main",
-    "pages/counter/main",
     "pages/detail/main",
     "pages/cart/main",
     "pages/new-books/main",

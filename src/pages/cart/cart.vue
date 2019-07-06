@@ -131,65 +131,41 @@ export default {
 }
 </script>
 
-<style scoped>
-/* .cart {
-  padding-bottom: 100rpx;
-} */
-.checkbox-item {
-  text-align: center;
-}
-.book {
-  /* display: flex; */
-  /* width: 100%; */
-  box-sizing: border-box;
-  width: 100%;
-  padding: 30rpx 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.book-right {
-  display: flex;
-  width: 130rpx;
-  height: 100%;
-  background-color: #f44;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-.cart-container {
-  display: inline-block;
-  display: flex;
-}
-.select {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.picture {
-  width: 140rpx;
-  height: 200rpx;
-}
-.image {
-  /* width: 80%; */
-  /* height: 200rpx;
-   */
-   width: 100%;
-   height: 100%;
-}
-.info {
-  flex: 1;
-  margin-left: 30rpx;
-}
-.info-title {
-  font-size: 28rpx;
-}
-.info-author {
-  font-size: 24rpx;
-  color: #999;
-}
-.info-status {
-  font-size: 28rpx;
-}
+<style lang="stylus" scoped>
+.cart
+  .book
+    box-sizing: border-box
+    padding: $padding 0
+    border-bottom: 1px solid $border-color
+    .book-right
+      display: flex
+      width: 130rpx
+      height: 100%
+      background-color: $warnning-color
+      justify-content: center
+      align-items: center
+      color: $text-color
+    .cart-container
+      display: inline-block
+      display: flex
+      .select
+        width: 15%
+        display: flex
+        justify-content: center
+        align-items: center
+      .picture
+        width: $img-width
+        height: $img-height
+        .image
+          width: $img-width
+          height: $img-height
+      .info
+        flex: 1
+        margin-left: $padding
+        &-title
+          font-size: $normal-fs
+        &-author
+          font-size: $small-fs
+          color: $gray-text-color
 </style>
 

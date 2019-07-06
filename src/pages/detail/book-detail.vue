@@ -60,37 +60,30 @@ export default {
 }
 </script>
 
-<style scoped>
-.book-detail {
+<style lang="stylus" scoped>
+.book-detail
   width: 100%;
-  background-color: #E2E2E2;
-}
-.detail-header {
-  display: flex;
-  background-color: #fff;
-  padding: 40rpx;
-}
-.picture {
-  margin-right: 20rpx;
-}
-.image {
-  width: 200rpx;
-  height: 300rpx;
-}
-.author {
-  color: #979997;
-  font-size: 28rpx;
-}
-.info {
-  flex: 1;
-}
-.status {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 24rpx;
-}
+  background-color: $bg-color
+  .detail-header
+    display: flex;
+    background-color: $cover-bg-color
+    padding: $padding
+    .picture
+      margin-right: $margin
+      .image
+        width: 200rpx
+        height: 300rpx
+    .info
+      flex: 1
+      .author
+        color: $gray-text-color
+        font-size: $normal-fs
+    .status
+      width: 20%
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      font-size: $small-fs
 </style>
 
