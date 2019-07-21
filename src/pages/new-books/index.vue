@@ -27,9 +27,11 @@ export default {
     wx.stopPullDownRefresh()
   },
   async onReachBottom () {
-    this.start = this.newBooks.length
-    const books = await this.getBooks(this.start, this.limit)
-    this.newBooks = this.newBooks.concat(books)
+    if (this.loading) {
+      this.start = this.newBooks.length
+      const books = await this.getBooks(this.start, this.limit)
+      this.newBooks = this.newBooks.concat(books)
+    }
   },
   async mounted () {
     this.newBooks = await this.getBooks(0, this.limit)

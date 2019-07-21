@@ -14,7 +14,7 @@
               <img class="image" :src="cart.book.image">
             </div>
             <div class="info">
-              <p class="info-title" @click="goBookDetail(cart.book._id)">{{cart.book.name}}</p>
+              <p class="info-title" @click="goBookDetail(cart.book._id)">{{cart.book.title}}</p>
               <p class="info-author">{{cart.book.author}}</p>
               <van-tag type="success">还剩{{cart.book.status}}本</van-tag>
             </div>
@@ -71,11 +71,12 @@ export default {
       this.loaded = true
     },
     selectAll (checked) {
-      if (checked) {
-        this.totalChecked = checked
+      this.totalChecked = !checked
+      if (!checked) {
         const cartIds = this.carts.map(cart => cart.book._id)
         this.checkedValue = cartIds
         this.bookCount = this.checkedValue.length
+        console.log('全选后的ids:', this.checkedValue)
         return
       }
       this.checkedValue = []
@@ -94,6 +95,10 @@ export default {
       mpvue.navigateTo({ url: `../detail/main?id=${id}` })
     },
     async commitOrder () {
+      if (this.checkedValue.length === 0) {
+        Toast.fail('请勾选图书')
+        return
+      }
       if (this.checkedValue.length > 3) {
         Toast.fail('一次性下单不能超过三本')
         return
@@ -112,15 +117,19 @@ export default {
         message: '你确定要删除吗?'
       }).then(async () => {
         // 删除已选中的checkedValue
-        const idIndex = this.checkedValue.indexOf(id)
-        if (idIndex !== -1) {
-          this.checkedValue.splice(idIndex, 1)
-        }
+        // const idIndex = this.checkedValue.indexOf(id)
+        // if (idIndex !== -1) {
+        //   const sss = this.checkedValue.splice(idIndex, 1)
+        //   console.log('ssss:', sss)
+        // }
+        this.checkedValue = this.checkedValue.filter(check => check !== id)
         await this.$fly.delete('/cart', { bookId: id })
         Toast.success('删除成功')
         instance.close()
         this.bookCount = this.checkedValue.length
         console.log('---------图书总数量:', this.bookCount)
+        console.log('---------this.checkedValue:', this.checkedValue)
+        // if (!this.bookCount) this.totalChecked = false
         await this.getCartList()
       }).catch(() => {
         instance.close()

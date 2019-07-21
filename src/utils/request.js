@@ -3,6 +3,7 @@ import Fly from 'flyio/dist/npm/wx'
 const fly = new Fly()
 
 fly.config.baseURL = 'http://192.168.0.106:3000/api/v1'
+// fly.config.baseURL = 'http://2b1c831160.iok.la:17476/api/v1'
 
 fly.interceptors.request.use((request) => {
   if (request.url === '/login') return request

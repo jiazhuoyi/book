@@ -11,6 +11,15 @@
         placeholder="请输入员工编号(必填项)"
         @change="change">
       </van-field>
+      <van-field
+        :value="user.name"
+        id="name"
+        required
+        label="真实姓名"
+        :error="nameError"
+        placeholder="请输入员工真实姓名(必填项)"
+        @change="change">
+      </van-field>
     </van-cell-group>
     <div class="commit">
       <van-button 
@@ -31,7 +40,8 @@ export default {
   data () {
     return {
       user: {},
-      emidError: false
+      emidError: false,
+      nameError: true
     }
   },
   methods: {
@@ -40,7 +50,11 @@ export default {
         this.emidError = true
         return
       }
-      const result = await this.$fly.post('/user-emid', { emid: this.user.emid })
+      if (!this.user.name) {
+        this.nameError = true
+        return
+      }
+      const result = await this.$fly.post('/user-emid', { emid: this.user.emid, name: this.user.name })
       this.$store.commit('setUser', result.user)
       Toast.success('绑定成功')
     },

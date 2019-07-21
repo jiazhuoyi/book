@@ -8,7 +8,7 @@
         <div class="header-info">
           <div class="center">
             <span class="name">{{user.nickName}}</span>
-            <span class="emid">{{ '员工编号：'+user.emid || '暂未绑定员工编号'}}</span>
+            <span class="emid">{{emid}}</span>
           </div>
         </div>
         <a class="header-more" hover-class="none" href="../bind-user/main">
@@ -24,6 +24,9 @@ export default {
   computed: {
     user () {
       return this.$store.state.user
+    },
+    emid () {
+      return this.$store.state.user.emid ? `员工编号：${this.$store.state.user.emid}` : '暂未绑定员工编号'
     }
   },
   async mounted () {

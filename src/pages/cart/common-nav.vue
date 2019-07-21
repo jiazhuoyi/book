@@ -23,7 +23,6 @@ export default {
   props: ['count', 'checked'],
   methods: {
     select () {
-      this.checked = !this.checked
       this.$emit('select', this.checked)
     },
     commitOrder () {

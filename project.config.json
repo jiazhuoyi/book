@@ -16,7 +16,7 @@
 	"projectname": "book",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
-	"libVersion": "2.7.2",
+	"libVersion": "2.7.3",
 	"condition": {
 		"search": {
 			"current": -1,

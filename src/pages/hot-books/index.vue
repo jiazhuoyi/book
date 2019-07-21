@@ -30,9 +30,11 @@ export default {
     this.hotBooks = await this.getBooks(0, this.limit)
   },
   async onReachBottom () {
-    this.start = this.hotBooks.length
-    const books = await this.getBooks(this.start, this.limit)
-    this.hotBooks = this.hotBooks.concat(books)
+    if (this.loading) {
+      this.start = this.hotBooks.length
+      const books = await this.getBooks(this.start, this.limit)
+      this.hotBooks = this.hotBooks.concat(books)
+    }
   },
   methods: {
     async getBooks (start, limit) {

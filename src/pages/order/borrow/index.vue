@@ -31,7 +31,7 @@ export default {
     wx.stopPullDownRefresh()
   },
   async mounted () {
-    await this.getOrders()
+    this.orders = await this.getOrders(0, this.limit)
   },
   async onReachBottom () {
     this.start = this.orders.length
