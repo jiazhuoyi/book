@@ -1,6 +1,6 @@
 <template>
   <div class="return">
-    <order-item v-for="order in orders" :key="order._id" :order="order"></order-item>
+    <order-item v-for="order in orders" :key="order._id" :order="order" @refresh="refresh"></order-item>
     <abnor title="暂无还书记录" text="去逛逛" v-if="loaded && !orders.length"></abnor>
     <div v-if="loaded && orders.length">
       <loadmore :loading="loading"></loadmore>
@@ -42,6 +42,9 @@ export default {
     this.orders = this.orders.concat(orders)
   },
   methods: {
+    async refresh () {
+      this.orders = await this.getOrders(0, this.limit)
+    },
     async getOrders (start, limit, noLoading = false) {
       const result = await this.$fly.get('/order', {
         start,
