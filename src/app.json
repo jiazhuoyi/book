@@ -16,7 +16,8 @@
     "pages/purchase/main",
     "pages/help/index/main",
     "pages/help/detail/main",
-    "pages/bind-user/main"
+    "pages/bind-user/main",
+    "pages/checking/main"
   ],
   "usingComponents": {
     "van-rate": "/static/vant/rate/index",

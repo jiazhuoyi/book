@@ -47,8 +47,15 @@ export default {
         iv: detail.iv,
         signature: detail.signature
       })
+      const user = result.user
       this.$store.commit('setUser', result.user)
-      wx.switchTab({ url: '../index/main' })
+      if (user.status === 0) {
+        mpvue.navigateTo({ url: '/pages/signup/main' })
+      } else if (user.status === 1) {
+        mpvue.navigateTo({ url: '/pages/checking/main' })
+      } else {
+        wx.switchTab({ url: '../index/main' })
+      }
     }
   }
 }

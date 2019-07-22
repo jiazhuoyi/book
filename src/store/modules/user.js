@@ -3,7 +3,8 @@ const user = {
     id: '',
     avatarUrl: '',
     nickName: '',
-    emid: ''
+    emid: '',
+    status: ''
   },
   mutations: {
     setUser: (state, userInfo) => {
@@ -11,6 +12,7 @@ const user = {
       state.id = userInfo.id
       state.avatarUrl = userInfo.avatarUrl
       state.emid = userInfo.emid
+      state.status = userInfo.status
     }
   }
 }

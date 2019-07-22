@@ -28,9 +28,14 @@ fly.interceptors.response.use((response) => {
   wx.hideLoading()
   return response.data
 }, (error) => {
-  console.log('请求错误:', error)
   if (error.status === 401) {
     mpvue.navigateTo({ url: '/pages/login/main' })
+  } else if (error.status === 403 && error.response.data.code === 4011) {
+    mpvue.navigateTo({ url: '/pages/bind-up/main' })
+  } else if (error.status === 403 && error.response.data.code === 4012) {
+    mpvue.navigateTo({ url: '/pages/checking/main' })
+  } else {
+    console.log('请求错误:', error)
   }
   wx.hideLoading()
 })

@@ -58,7 +58,6 @@ export default {
   async onReachBottom () {
     this.start = this.allBooks.length
     this.loading = true
-    // const books = await this.getBooks(this.start, this.limit)
     const books = await this.getAllBooks(this.start, this.limit, this.type)
     if (books.length < this.allBooks.length) {
       this.loading = false
@@ -70,8 +69,10 @@ export default {
       mpvue.navigateTo({ url: '../search/main' })
     },
     async getAll () {
-      [this.commendBooks, this.allBooks] = await Promise.all(
-        [this.getCommendBooks(), this.getAllBooks(0, this.limit, this.type)])
+      const result = await this.$fly.get(
+        '/dashboard', { start: 0, limit: this.limit, type: this.type })
+      this.commendBooks = result.commendBooks
+      this.allBooks = result.allBooks
     },
     async getAllBooks (start, limit, type) {
       const result = await this.$fly.get('/books', { type, start, limit })
@@ -84,7 +85,6 @@ export default {
       return result.books
     },
     async onChange (checked) {
-      console.log('checked:', checked)
       this.checked = checked
       this.type = checked ? 'noSeen' : 'all'
       const result = await this.getAllBooks(0, this.limit, this.type)

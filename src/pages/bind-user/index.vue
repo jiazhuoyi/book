@@ -41,7 +41,7 @@ export default {
     return {
       user: {},
       emidError: false,
-      nameError: true
+      nameError: false
     }
   },
   methods: {
@@ -54,9 +54,11 @@ export default {
         this.nameError = true
         return
       }
-      const result = await this.$fly.post('/user-emid', { emid: this.user.emid, name: this.user.name })
+      const result = await this.$fly.post('/bind-user', { emid: this.user.emid, name: this.user.name })
       this.$store.commit('setUser', result.user)
       Toast.success('绑定成功')
+      wx.reLaunch({ url: '/pages/checking/main' })
+
     },
     change (event) {
       this.user[event.mp.target.id] = event.mp.detail

@@ -76,7 +76,6 @@ export default {
         const cartIds = this.carts.map(cart => cart.book._id)
         this.checkedValue = cartIds
         this.bookCount = this.checkedValue.length
-        console.log('全选后的ids:', this.checkedValue)
         return
       }
       this.checkedValue = []
@@ -112,28 +111,17 @@ export default {
     },
     async removeBook (event, id) {
       const instance = event.mp.detail.instance
-      console.log('mp:', event.mp)
       Dialog.confirm({
         message: '你确定要删除吗?'
       }).then(async () => {
-        // 删除已选中的checkedValue
-        // const idIndex = this.checkedValue.indexOf(id)
-        // if (idIndex !== -1) {
-        //   const sss = this.checkedValue.splice(idIndex, 1)
-        //   console.log('ssss:', sss)
-        // }
         this.checkedValue = this.checkedValue.filter(check => check !== id)
         await this.$fly.delete('/cart', { bookId: id })
         Toast.success('删除成功')
         instance.close()
         this.bookCount = this.checkedValue.length
-        console.log('---------图书总数量:', this.bookCount)
-        console.log('---------this.checkedValue:', this.checkedValue)
-        // if (!this.bookCount) this.totalChecked = false
         await this.getCartList()
       }).catch(() => {
         instance.close()
-        console.log('取消')
       })
     }
   }
