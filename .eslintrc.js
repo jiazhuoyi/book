@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-12 17:18:48
+ * @LastEditTime: 2019-08-15 12:47:39
+ * @LastEditors: Please set LastEditors
+ */
 // http://eslint.org/docs/user-guide/configuring
 
 module.exports = {
@@ -37,6 +44,7 @@ module.exports = {
     getPage: true,
     requirePlugin: true,
     mpvue: true,
-    mpvuePlatform: true
+    mpvuePlatform: true,
+    getCurrentPages: true
   }
 }

@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-12 17:18:46
+ * @LastEditTime: 2019-08-15 14:06:12
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div class="home">
     <div class="header">
@@ -47,6 +54,9 @@ export default {
       type: 'all',
       loading: true
     }
+  },
+  async onLoad () {
+    await this.getAll()
   },
   async onPullDownRefresh () {
     await this.getAll()

@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-23 22:07:19
+ * @LastEditTime: 2019-08-15 14:24:39
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div class="login">
     <div class="info">
@@ -54,7 +61,12 @@ export default {
       } else if (user.status === 1) {
         mpvue.navigateTo({ url: '/pages/checking/main' })
       } else {
-        wx.switchTab({ url: '../index/main' })
+        wx.switchTab({ url: '../index/main',
+          success: function (e) {
+            const page = getCurrentPages().pop()
+            if (page === undefined || page === null) return
+            page.onLoad()
+          } })
       }
     }
   }

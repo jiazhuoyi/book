@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-28 00:26:01
+ * @LastEditTime: 2019-08-15 12:34:50
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div class="bind-user">
     <van-toast id="van-toast" />
@@ -58,7 +65,6 @@ export default {
       this.$store.commit('setUser', result.user)
       Toast.success('绑定成功')
       wx.reLaunch({ url: '/pages/checking/main' })
-
     },
     change (event) {
       this.user[event.mp.target.id] = event.mp.detail
