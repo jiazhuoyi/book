@@ -1,16 +1,23 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-12 17:18:46
+ * @LastEditTime: 2019-08-17 16:21:35
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div class="category">
     <van-toast id="van-toast" />
     <a class="new-rank category-item" hover-class="none" href="/pages/new-books/main">
-      <img class="category-icon" src="/static/images/new-rank.png">
+      <img class="category-icon" src="https://cdn.jiazhuoyi.cn/new-rank.png">
       <span class="category-title">新书榜</span>
     </a>
     <a class="borrow-rank category-item" hover-class="none" href="/pages/hot-books/main">
-      <img class="category-icon" src="/static/images/borrow-rank.png">
+      <img class="category-icon" src="https://cdn.jiazhuoyi.cn/borrow-rank.png">
       <span class="category-title">借阅榜</span>
     </a>
     <a class="all category-item" hover-class="none" @click="onerror()">
-      <img class="category-icon" src="/static/images/all.png">
+      <img class="category-icon" src="https://cdn.jiazhuoyi.cn/book-all.png">
       <span class="category-title">图书分类</span>
     </a>
   </div>

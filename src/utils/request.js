@@ -2,15 +2,15 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-17 16:52:35
- * @LastEditTime: 2019-08-14 17:56:58
+ * @LastEditTime: 2019-08-19 01:41:21
  * @LastEditors: Please set LastEditors
  */
 import Fly from 'flyio/dist/npm/wx'
 
 const fly = new Fly()
 
-fly.config.baseURL = 'http://192.168.0.106:3000/api/v1/m'
-// fly.config.baseURL = 'http://2b1c831160.iok.la:17476/api/v1'
+fly.config.baseURL = 'https://book.jiazhuoyi.cn/api/v1/m'
+// fly.config.baseURL = 'http://192.168.0.106:3001/api/v1/m'
 
 fly.interceptors.request.use((request) => {
   if (request.url === '/login') return request
@@ -35,6 +35,7 @@ fly.interceptors.response.use((response) => {
   wx.hideLoading()
   return response.data
 }, (error) => {
+  wx.hideLoading()
   if (error.status === 401) {
     mpvue.navigateTo({ url: '/pages/login/main' })
   } else if (error.status === 403 && error.response.data.code === 4011) {
@@ -44,9 +45,11 @@ fly.interceptors.response.use((response) => {
   } else if (error.status === 403 && error.response.data.code === 4010) {
     mpvue.navigateTo({ url: '/pages/login/main' })
   } else {
-    console.log('请求错误:', error)
+    wx.showToast({
+      title: '网络发生故障',
+      icon: 'none'
+    })
   }
-  wx.hideLoading()
 })
 
 export default fly

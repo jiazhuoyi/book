@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-12 17:18:46
+ * @LastEditTime: 2019-08-19 01:41:31
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div class="cart">
     <van-dialog id="van-dialog" />
@@ -54,9 +61,6 @@ export default {
     await this.refreshCart()
     wx.stopPullDownRefresh()
   },
-  // async mounted () {
-  //   await this.getCartList()
-  // },
   methods: {
     async refreshCart () {
       this.carts = []

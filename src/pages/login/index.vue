@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-23 22:07:19
- * @LastEditTime: 2019-08-15 14:24:39
+ * @LastEditTime: 2019-08-19 01:09:29
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -57,9 +57,9 @@ export default {
       const user = result.user
       this.$store.commit('setUser', result.user)
       if (user.status === 0) {
-        mpvue.navigateTo({ url: '/pages/signup/main' })
+        mpvue.reLaunch({ url: '/pages/signup/main' })
       } else if (user.status === 1) {
-        mpvue.navigateTo({ url: '/pages/checking/main' })
+        mpvue.reLaunch({ url: '/pages/checking/main' })
       } else {
         wx.switchTab({ url: '../index/main',
           success: function (e) {

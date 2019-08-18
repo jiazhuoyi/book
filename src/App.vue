@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-12 17:18:46
+ * @LastEditTime: 2019-08-19 01:42:32
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
 export default {
   created () {
@@ -31,7 +38,7 @@ export default {
     if (wx.getStorageSync('book_token')) {
       wx.switchTab({ url: 'pages/index/main' })
     } else {
-      mpvue.navigateTo({ url: 'pages/login/main' })
+      mpvue.reLaunch({ url: 'pages/login/main' })
     }
   }
 }

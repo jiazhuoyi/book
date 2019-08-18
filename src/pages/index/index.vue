@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-12 17:18:46
- * @LastEditTime: 2019-08-15 14:06:12
+ * @LastEditTime: 2019-08-19 01:34:26
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -17,7 +17,7 @@
           placeholder="书名/作则/ISBN"
           shape="round"
           disabled
-          background="#EE5E7B"
+          background="#rgba(0, 0, 0, 0)"
           @click="goSearchPage">
         </van-search>
       </div>
@@ -61,9 +61,6 @@ export default {
   async onPullDownRefresh () {
     await this.getAll()
     wx.stopPullDownRefresh()
-  },
-  async mounted () {
-    await this.getAll()
   },
   async onReachBottom () {
     this.start = this.allBooks.length
@@ -111,7 +108,8 @@ export default {
   .header 
     width: 100%
     height: 400rpx
-    background-color: $theme-color
+    // background-color: $theme-color
+    background: url(https://cdn.jiazhuoyi.cn/book_admin.jpg)
     z-index: 1
     .title
       width: 100%
